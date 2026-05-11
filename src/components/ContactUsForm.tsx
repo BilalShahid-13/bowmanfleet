@@ -67,8 +67,8 @@ export default function ContactUs() {
 
                 if (result.success) {
                     toast.success("Email sent successfully! 🚀")
-                    // alert("Email sent successfully! 🚀");
-                    form.reset(); 
+                    form.reset();
+                    
                 } else {
                     alert("Server error: Could not send email. Please try again.");
                 }
