@@ -17,8 +17,8 @@ export async function sendEmailAction(formData: any) {
         });
 
         const mailOptions = {
-            from: `"Bowman Contact" <admin@bowmanfleetllc.com>`,
-            to: process.env.EMAIL_TO,
+            from: `"Bowman Contact" <${process.env.EMAIL_USERNAME}>`,
+            to: process.env.EMAIL_USERNAME,
             replyTo: formData.email,
             subject: `New Inquiry: ${formData.subject}`,
             html: `
