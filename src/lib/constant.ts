@@ -8,7 +8,7 @@ export const marqueeRowText = ['GT RACING', 'FLEET MANAGEMENT', 'STUNT SIMULATIO
 export const GAMES_DATA = [
     {
         title: "Sniper 3D Assassin - Cover Fire",
-        downloads: "5,000,000+",
+        downloads: "3,000,000+",
         link: "https://apps.apple.com/pk/app/sniper-3d-assassin-cover-fire/id1487785116",
         color: "from-slate-700 to-emerald-900",
         tags: ["Action", "Sniper", "Shooter", "3D"],
