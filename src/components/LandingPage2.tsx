@@ -1,13 +1,11 @@
 "use client";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { EMAIL_LINK } from "@/lib/constant";
+import { EMAIL_LINK, GAMES_DATA, marqueeRowText } from "@/lib/constant";
 import { montserrat, scrollToSection } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Download, Star } from "lucide-react";
 import Image from "next/image";
-import crazy from "../../public/hero/crazy.webp";
-import drive from "../../public/hero/drive.webp";
 import BentoSection from "./BentoSection";
 import ContactUs from "./ContactUsForm";
 
@@ -105,7 +103,7 @@ export default function ExpandedLandingPage() {
             </section>
 
             {/* 3. MARQUEE */}
-            <MarqueeRow items={['GT RACING', 'FLEET MANAGEMENT', 'STUNT SIMULATION', '5M+ DOWNLOADS', 'LEVEL DESIGN']} />
+            <MarqueeRow items={marqueeRowText} />
 
             {/* 4. GAMES */}
             <section id="games" className="py-32 px-6 max-w-7xl mx-auto">
@@ -130,26 +128,6 @@ export default function ExpandedLandingPage() {
 
 // --- DATA & HELPER COMPONENTS ---
 
-const GAMES_DATA = [
-    {
-        title: "Extreme Stunts GT Racing",
-        downloads: "5,000,000+",
-        link: "https://play.google.com/store/apps/details?id=com.madcap.extreme.stunts.gt.racing",
-        color: "from-yellow-400 to-orange-600",
-        tags: ["Action", "Racing", "3D"],
-        img: crazy,
-        description: "High-octane racing with physics-defying stunts."
-    },
-    {
-        title: "Drive Maze Parking Challenge",
-        downloads: "100,000+",
-        link: "https://play.google.com/store/apps/details?id=com.varleytg.drivemaze.parking.challenge",
-        img: drive,
-        color: "from-blue-500 to-cyan-400",
-        tags: ["Simulator", "Puzzle", "Drive"],
-        description: "Precision driving simulator focused on technical mazes."
-    }
-];
 
 const MarqueeRow = ({ items }: { items: string[] }) => (
     <div className="py-10 border-y border-white/5 bg-white/[0.02] overflow-hidden whitespace-nowrap flex">
