@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "TURBOPACK=0 next build",
-    "postbuild": "node scripts/copy-assets.mjs",
-    "start": "node .next/standalone/server.js",
+    "start": "next start",
     "lint": "biome check",
     "format": "biome format --write"
   },

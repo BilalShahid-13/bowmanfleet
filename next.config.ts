@@ -2,14 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  output: 'standalone',
+  output: 'export',
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },
-  outputFileTracingRoot: process.cwd(),
-  experimental: {
-    turbopackFileSystemCacheForBuild: false,
-  }
 };
 
 export default nextConfig;

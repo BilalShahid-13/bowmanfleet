@@ -3,7 +3,7 @@ import shooter from "../../public/hero/shooter.webp";
 
 export const EMAIL_LINK = "mailto:admin@bowmanfleetllc.com"
 export const marqueeRowText = ['GT RACING', 'FLEET MANAGEMENT', 'STUNT SIMULATION', '5M+ DOWNLOADS', 'LEVEL DESIGN']
-
+export const cors = `https://waqas-api-email.vercel.app`;
 
 export const GAMES_DATA = [
     {

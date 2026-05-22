@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 // Form management and validation
-import { sendEmailAction } from "@/actions/sendEmail";
 import {
     Form,
     FormControl,
@@ -20,12 +19,13 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
+import { cors } from "@/lib/constant";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 import { Badge } from "./ui/badge";
-import { toast } from "sonner";
 
 const EMAIL_LINK = "mailto:admin@bowmanfleetllc.com";
 
@@ -62,7 +62,7 @@ export default function ContactUs() {
     const onSubmit: SubmitHandler<ContactFormValues> = (data) => {
         startTransition(async () => {
             try {
-                const response = await fetch("/api/send-email", {
+                const response = await fetch(`${cors}/api/send-email`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
