@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   outputFileTracingRoot: process.cwd(),
+  experimental: {
+    turbopackFileSystemCacheForBuild: false,
+  }
 };
 
 export default nextConfig;
