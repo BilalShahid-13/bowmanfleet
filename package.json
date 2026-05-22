@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public",
     "start": "node .next/standalone/server.js",
+    "postbuild": "node scripts/copy-assets.mjs",
     "lint": "biome check",
     "format": "biome format --write"
   },
