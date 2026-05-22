@@ -1,0 +1,48 @@
+name: Deploy Static Next.js to Hostinger
+
+on:
+  push:
+    branches:
+      - main # Agar master branch hai toh yahan master likhein
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📂 Checkout Code
+
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Bun
+
+        uses: oven-sh/setup-bun@v2
+
+      - name: 📦 Install Dependencies
+
+        run: bun install
+
+      - name: 🏗️ Build Project
+
+        run: bun run build
+
+      - name: 🚀 Deploy to Hostinger via FTP
+
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+
+          username: ${{ secrets.FTP_USERNAME }}
+
+          password: ${{ secrets.FTP_PASSWORD }}
+
+          secure-user-uses-tls: false # ✅ Yeh line Hostinger ko plain FTP login allow karegi
+
+          port: 21 # ✅ Hostinger ka FTP port explicit batayein
+
+          secure: false # ✅ Hostinger ke normal FTP ke liye isey false ya 'init' rakhna parta hai taaki firewall block na kare
+
+          local-dir: ./out/
+
+          server-dir: ./public_html/
