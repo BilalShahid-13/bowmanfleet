@@ -27,6 +27,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          secure-user-uses-tls: false # ✅ Yeh line Hostinger ko plain FTP login allow karegi
           port: 21                 # ✅ Hostinger ka FTP port explicit batayein
           secure: false            # ✅ Hostinger ke normal FTP ke liye isey false ya 'init' rakhna parta hai taaki firewall block na kare
           local-dir: ./out/ 
