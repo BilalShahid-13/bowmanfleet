@@ -62,13 +62,19 @@ export default function ContactUs() {
     const onSubmit: SubmitHandler<ContactFormValues> = (data) => {
         startTransition(async () => {
             try {
-                // Server Action ko call kar rahe hain
-                const result = await sendEmailAction(data);
+                const response = await fetch("/api/send-email", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
 
                 if (result.success) {
-                    toast.success("Email sent successfully! 🚀")
+                    toast.success("Email sent successfully! 🚀");
                     form.reset();
-                    
                 } else {
                     alert("Server error: Could not send email. Please try again.");
                 }
@@ -77,9 +83,6 @@ export default function ContactUs() {
                 alert("Something went wrong while connecting to the server.");
             }
         });
-
-        // Console log development ke liye theek hai
-        console.log("Form processing started for:", data.email);
     };
 
     return (
