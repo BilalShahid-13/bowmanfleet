@@ -1,13 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactCompiler: true,
-  // output: 'export',
-  output: 'standalone',  // ✅ Node.js server
+  output: 'standalone',
   images: {
     unoptimized: true,
   },
+  outputFileTracingRoot: process.cwd(),
 };
 
 export default nextConfig;

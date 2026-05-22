@@ -21,7 +21,8 @@ const SectionHeader = ({ title, highlight, description, align = "left" }: any) =
 
 const GameCard = ({ game }: { game: any }) => (
     <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={false}
+        animate={{ opacity: 1, scale: 1 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         className="group relative bg-white/[0.03] border border-white/10 rounded-[3rem] p-10 hover:border-yellow-500/50 transition-all duration-500"
